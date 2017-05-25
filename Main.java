@@ -1,24 +1,38 @@
-
 package cinema;
-
 import java.util.Scanner;
 
+import cinema.sessão.Sessao;
 
-public class Main {
+public class main {
 
 	public static void main(String[] args) {
-
-		Sessao s1 = new Sessao("back to the future", 0);
 		
-		
-		Sessao s2 = new Sessao("Alien", 1);
-		
-		
-		Sessao s3 = new Sessao("Star Wars", 2);
-		
-		
-		Sessao s4 = new Sessao("Pulp Fiction", 3);
+		 int escolhaFC = 0;
+		 System.out.print("Você é /n1 - Cliente /n2 - Funcionário?/n");
+		 Scanner fc = new Scanner(System.in);
+		 escolhaFC = fc.nextInt();
+		 
+		 do{
+			 switch(escolhaFC){
+			 	case 1:
+			 		escolhaFC = 1; 
+			 		 System.out.print("--Cliente--/n");
+			 		 
+			 		 pessoa p1 = new pessoa("Mariano", 2);
+			 		 sessão.Sessao("Star Wars", 2);
+			 		 break;
+			 		 
+			 	case 2:
+			 		escolhaFC = 2;
+			 		System.out.print("--Funcionário--");
+			 		break;
+			 	default:
+			 		System.out.print("Número Inválido"); 
+			 		break;
+			 }
+		 }while(escolhaFC != 0);
 	}
+
 }
 
 

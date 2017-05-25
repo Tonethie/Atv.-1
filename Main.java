@@ -19,7 +19,7 @@ public class main {
 			 		 System.out.print("--Cliente--/n");
 			 		 
 			 		 pessoa p1 = new pessoa("Mariano", 2);
-			 		 sessão.Sessao("Star Wars", 2);
+			 		 sessão.Sessao("Star Wars", 2); //não funciona
 			 		 break;
 			 		 
 			 	case 2:

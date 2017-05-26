@@ -230,6 +230,28 @@ public class main {
 			 	case 2:
 			 		escolhaFC = 2;
 			 		System.out.print("--Funcionário--");
+					System.out.println("Digite seu nome: \n");
+			 		nomeFunc = nf.next();
+			 		pessoa p4 = new pessoa("nomeFunc");
+			 		do{
+			 			System.out.println("Deseja:\n1 - Consultar lugar\n2 - Verificar lucro da sala\n3 - Alterar nome");
+			 			switch(escolha4){
+			 				case 1:
+			 					escolha4 = 1;
+			 					System.out.println("--Consultar Lugar--");
+			 					break;
+			 				case 2:
+			 					escolha4 = 2;
+			 					System.out.println("--Verificar Lucro da sala--");
+			 					break;
+			 				case 3:
+			 					escolha4 = 3;
+			 					break;
+			 				default:
+			 					System.out.println("Número Inválido");
+			 					System.out.println("--Alterar nome--");
+			 					break;
+			 			}
 			 		break;
 			 	default:
 			 		System.out.print("Número Inválido"); 

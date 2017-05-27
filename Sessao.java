@@ -2,25 +2,25 @@ package cinema;
 
 
 public class  Sessao {
-    private int codeSessao;
-    private boolean [][]lugar = new boolean[10][20];
-    private String [][]dataLugar = new String[10][20];
+
+    private Cliente [][]dataLugar = new Cliente[10][20];
 	private String HSessao[] = {"14h", "16h", "18h", "20h"};
+	private String sessao;
     private String filme;
 
 
- public Sessao(String filme, int codeSessao){
+ public Sessao(String filme, int codeSessao){ // construtor da classe
 	 super();
 	 this.filme = filme;
-	 this.codeSessao = codeSessao;  
+	 this.sessao = HSessao[codeSessao];
 	 
  }
  
- public void lugares(int f, int p){	
-	 this.lugar[f][p] = true;
+ public void escolherLugar(Cliente c , int f, int p){ // atribui uma clinte para uma posi√ßao na matriz
 	 
-	 //this.dataLugar[f][p] = getNome() + " " + getTipo(); // nao sei como importar o nome e o tipo pra c·
-	} 
+	 this.dataLugar[f][p] = c;
+	 
+ }
 
  public void mostraOcupado(){ // imprime os lugares que estao livre e ocupados em uma matriz
 	 for (int i = 0; i < 10; i++) {
@@ -28,7 +28,7 @@ public class  Sessao {
 		 System.out.print(i + "  ");
 		 
 		 for (int j = 0; j < 20; j++) {
-			 if(lugar[i][j] == true){
+			 if(dataLugar[i][j] == null){
 			 System.out.print("O  ");
 			 }else{
 				 System.out.print("L  ");
@@ -40,35 +40,53 @@ public class  Sessao {
 	 for (int j = 0; j < 10; j++){ // imprime o numero guia para o numro de poltonas
 		 System.out.print(j + "  "); 
 	 }
-	 for (int j = 10; j < 20; j++){  // depois do 10 os espaÁos estre os numro comeÁao a ficar maiore
-		 System.out.print(j + " ");  // pois tive q fazer 2 for com espaÁos diferentes dpois do 10
+	 for (int j = 10; j < 20; j++){  // depois do 10 os espa√ßos estre os numro come√ßao a ficar maiore
+		 System.out.print(j + " ");  // pois tive q fazer 2 for com espa√ßos diferentes dpois do 10
+	 }
+ }
+ 
+ public void checkAssento(int f1, int p1){ // chega se os assentos mostrando a matriz  
+	 mostraOcupado();
+	 if(dataLugar[f1][p1] != null){
+		 System.out.println("esse assento esta sendo ocupado por: " + dataLugar[f1][p1].getNome() + // informa o nome do clinte e tipo de pagante q ele √©
+			            "\nque √© pagante: " + dataLugar[f1][p1].getTipo());
+	 }else{
+		 System.out.println("esse lugar nao esta sendo ocupado por ninguem!! ");
 	 }
  }
 
- 
- 
-public String getHSessao() {
-	return HSessao[codeSessao];
+public Cliente[][] getDataLugar() {
+	return dataLugar;
 }
 
+public void setDataLugar(Cliente[][] dataLugar) {
+	this.dataLugar = dataLugar;
+}
+
+public String[] getHSessao() {
+	return HSessao;
+}
+
+public void setHSessao(String[] hSessao) {
+	HSessao = hSessao;
+}
+
+public String getSessao() {
+	return sessao;
+}
+
+public void setSessao(String sessao) {
+	this.sessao = sessao;
+}
 
 public String getFilme() {
 	return filme;
 }
 
-
 public void setFilme(String filme) {
 	this.filme = filme;
 }
 
-
-public void setHSessao(int codeSessao) {
-	HSessao[codeSessao] = HSessao[codeSessao];
+ 
 }
  
- 
-	
-	
-	
-
-}

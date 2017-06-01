@@ -22,6 +22,8 @@ public class Main {
 		 
 		 Scanner nc = new Scanner(System.in);
 		 int escolha = 0, escolha1 = 0, x = 0,y = 0,z =0 ,w = 0, f, p, es;
+		 Scanner nomeC = new Scanner(System.in);
+		 Scanner tp = new Scanner(System.in);
 		 Scanner e = new Scanner(System.in);
 		 Sessao s1 = new Sessao("Star Wars", 0);
 		 Sessao s2 = new Sessao("Guardiões da Galáxia", 1);
@@ -50,11 +52,18 @@ public class Main {
 		 case 2: /* FALTA CADASTRAR CLINTE COM NOME E SEU TIPO É SO COLOCAR O CONSTRUTOR DE CLIENTE
 		 ( na moral sinta-se a vontade pra excluir tudo isso pq nem EU to entendo oq ta acontecendo)*/
 			 
+			 String nomeCliente;
+			 int tipo = 0;
+			 System.out.println("Insira seu nome: \n");  /*desta linha + as duas próximas, programa insere o nome do cliente e o tipo*/
+			 nomeCliente = nomeC.next();
+			 System.out.println("Você \n0 - Paga entrada inteira\n1 - É doador de sangue/nou 2 - É estudante\n");
+			 tipo = tp.nextInt();
 			 escolhaSessao();
 			 escolha1 = nc.nextInt();
 			 switch(escolha1){
 			 case 1:
 				 
+				 Cliente p1 = new Cliente(nomeCliente, tipo); //cria um cliente com nome e o tipo que ele escolher
 				 s1.mostraOcupado();
 				 System.out.print("escolha fileira: ");
 				 f = nc.nextInt();
@@ -69,6 +78,7 @@ public class Main {
 				 }
 			 break;
 			 case 2:
+				 Cliente p2 = new Cliente(nomeCliente, tipo);
 				 s2.mostraOcupado();
 				 System.out.print("escolha fileira: ");
 				 f = nc.nextInt();
@@ -84,6 +94,7 @@ public class Main {
 				 
 				 break;
 			 case 3:
+				 Cliente p3 = new Cliente(nomeCliente, tipo);
 				 s3.mostraOcupado();
 				 System.out.print("escolha fileira: ");
 				 f = nc.nextInt();
@@ -98,6 +109,7 @@ public class Main {
 				 }
 				 break;
 			 case 4:
+				 Cliente p4 = new Cliente(nomeCliente, tipo);
 				 s4.mostraOcupado();
 				 System.out.print("escolha fileira: ");
 				 f = nc.nextInt();
@@ -152,11 +164,13 @@ public class Main {
 				 break;
 			 }
 			 break;
-		 case 4: // aki é pra mostrar os resultados financeiro de cada sessao, por isso esses cases ae
+		 case 4: // aqui é pra mostrar os resultados financeiro de cada sessao, por isso esses cases ae
+			 System.out.println("Escolha a o horário da sessão que deseja ver o resultado financeiro:\n");
 			 escolhaSessao();
 			 escolha = nc.nextInt();
 			 switch(escolha){
 			 case 1:
+				 
 				 
 				 break;
 			 case 2:
@@ -189,8 +203,8 @@ public class Main {
 		System.out.println("1- Cadastrar nome do filme para cada sessao ");
 		System.out.println("2- compre seu ingresso ");
 		System.out.println("3- Ocupaçao de cada sessao e consuta de cada poltrona");
-		System.out.println("4- mostrar lucro da bileteria de determina sessao ");
-		System.out.println("5- mostrar lucro da bileteria geral ");
+		System.out.println("4- mostrar lucro da bilheteria de determina sessão ");
+		System.out.println("5- mostrar lucro da bilheteria geral ");
 		System.out.print("--------------------------------------\n ");
 	}
 	

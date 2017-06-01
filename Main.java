@@ -2,7 +2,7 @@ package cinema;
 import java.util.Scanner;
 
 
-public class Main {
+public class main {
 
 	public static void main(String[] args) {
 		
@@ -12,8 +12,9 @@ public class Main {
 		 Cliente ls2[] = new Cliente[200];
 		 Cliente ls3[] = new Cliente[200];
 		 Cliente ls4[] = new Cliente[200];
+		 
  		 /* declarei novos clintes como sao 4 sessoes e cada
- 		    sessao cabe 200 pessoa foi criado 4 vetores 
+ 		    sessao cabe 200 pessoas foram criados 4 vetores 
  		  */
 		 
 		 int S1contMeia = 0, S2contMeia = 0, S3contMeia = 0, S4contMeia = 0 ;
@@ -21,7 +22,9 @@ public class Main {
 		 
 		 
 		 Scanner nc = new Scanner(System.in);
-		 int escolha = 0, escolha1 = 0, x = 0,y = 0,z =0 ,w = 0, f, p, es;
+		 int escolha = 0, escolha1 = 0; 
+		 int x = 0,y = 0,z =0 ,w = 0, f, p, es = 0;
+		 String tipo [] = null;
 		 Scanner nomeC = new Scanner(System.in);
 		 Scanner tp = new Scanner(System.in);
 		 Scanner e = new Scanner(System.in);
@@ -29,22 +32,27 @@ public class Main {
 		 Sessao s2 = new Sessao("Guardiões da Galáxia", 1);
 		 Sessao s3 = new Sessao("Back to the Future", 2);
 		 Sessao s4 = new Sessao("Pulp Fiction", 3);
+		 int valorS1 = 0;
+		 int valorS2 = 0;
+		 int valorS3 = 0;
+		 int valorS4 = 0;
+		 int valorTotal = 0;
 		 mostraMenu();
 		 escolha = e.nextInt();
 		 do{
 		 switch(escolha){
 		 
 		 case 1: // escolhe os filmes para as sessoes
-			 System.out.println("escolha filme para sessao das 14H");
+			 System.out.println("Escolha filme para sessao das 14H");
 			  filme = nc.next();
 			  s1.setFilme(filme);
-			  System.out.println("escolha filme para sessao das 16H");
+			  System.out.println("Escolha filme para sessao das 16H");
 			  filme = nc.next();
 			  s2.setFilme(filme);
-			  System.out.println("escolha filme para sessao das 18H");
+			  System.out.println("Escolha filme para sessao das 18H");
 			  filme = nc.next();
 			  s3.setFilme(filme);
-			  System.out.println("escolha filme para sessao das 20H");
+			  System.out.println("Escolha filme para sessao das 20H");
 			  filme = nc.next();
 			  s4.setFilme(filme);  
 		 break;
@@ -53,17 +61,14 @@ public class Main {
 		 ( na moral sinta-se a vontade pra excluir tudo isso pq nem EU to entendo oq ta acontecendo)*/
 			 
 			 String nomeCliente;
-			 int tipo = 0;
 			 System.out.println("Insira seu nome: \n");  /*desta linha + as duas próximas, programa insere o nome do cliente e o tipo*/
 			 nomeCliente = nomeC.next();
 			 System.out.println("Você \n0 - Paga entrada inteira\n1 - É doador de sangue/nou 2 - É estudante\n");
-			 tipo = tp.nextInt();
+			 es = tp.nextInt();
 			 escolhaSessao();
 			 escolha1 = nc.nextInt();
 			 switch(escolha1){
 			 case 1:
-				 
-				 Cliente p1 = new Cliente(nomeCliente, tipo); //cria um cliente com nome e o tipo que ele escolher
 				 s1.mostraOcupado();
 				 System.out.print("escolha fileira: ");
 				 f = nc.nextInt();
@@ -71,6 +76,8 @@ public class Main {
 				 p = nc.nextInt();
 				 s1.escolherLugar(ls1[x], f, p);
 				 x++;
+				 ls1[x].setNome(nomeCliente);
+				 ls1[x].setVtipo(tipo);
 				 if(isinteira(ls1[x]) == true){
 					 S1contNormal++;
 				 }else{
@@ -78,7 +85,6 @@ public class Main {
 				 }
 			 break;
 			 case 2:
-				 Cliente p2 = new Cliente(nomeCliente, tipo);
 				 s2.mostraOcupado();
 				 System.out.print("escolha fileira: ");
 				 f = nc.nextInt();
@@ -86,6 +92,8 @@ public class Main {
 				 p = nc.nextInt();
 				 s2.escolherLugar(ls2[y], f, p);
 				 y++;
+				 ls2[y].setNome(nomeCliente);
+				 ls2[y].setVtipo(tipo);
 				 if(isinteira(ls2[y]) == true){
 					 S2contNormal++;
 				 }else{
@@ -94,7 +102,6 @@ public class Main {
 				 
 				 break;
 			 case 3:
-				 Cliente p3 = new Cliente(nomeCliente, tipo);
 				 s3.mostraOcupado();
 				 System.out.print("escolha fileira: ");
 				 f = nc.nextInt();
@@ -102,6 +109,8 @@ public class Main {
 				 p = nc.nextInt();
 				 s3.escolherLugar(ls3[z], f, p);
 				 z++;
+				 ls3[z].setNome(nomeCliente);
+				 ls3[z].setVtipo(tipo);
 				 if(isinteira(ls3[z]) == true){
 					 S3contNormal++;
 				 }else{
@@ -109,7 +118,6 @@ public class Main {
 				 }
 				 break;
 			 case 4:
-				 Cliente p4 = new Cliente(nomeCliente, tipo);
 				 s4.mostraOcupado();
 				 System.out.print("escolha fileira: ");
 				 f = nc.nextInt();
@@ -117,6 +125,8 @@ public class Main {
 				 p = nc.nextInt();
 				 s4.escolherLugar(ls4[w], f, p);
 				 w++;
+				 ls4[w].setNome(nomeCliente);
+				 ls4[w].setVtipo(tipo);
 				 if(isinteira(ls4[w]) == true){
 					 S4contNormal++;
 				 }else{
@@ -125,9 +135,7 @@ public class Main {
 				 break;
 			 }
 			 break;
-			 
-			 
-		 case 3: /* checa as pessoas sentadas em cada sessao pela 
+		case 3: /* checa as pessoas sentadas em cada sessao pela 
 		 poltrona e fileiras, as sessos sao escolhida  pelo switch e AH BLA BLA BLA BLA BLA EU ODEIO DOCUMENTAR CODIGO AHHHHHH, Giovanna
 		 se endendeu essa parte!! */
 			 
@@ -169,23 +177,32 @@ public class Main {
 			 escolhaSessao();
 			 escolha = nc.nextInt();
 			 switch(escolha){
+			 
 			 case 1:
-				 
-				 
+				 valorS1 = (S1contNormal * 22) + (S1contMeia * 11);
+				 System.out.println("O resultado financeiro da sessão das 14:00 é R$" + valorS1);			 
 				 break;
+				 
 			 case 2:
 				 
+				 valorS2 = (S2contNormal * 22) + (S2contMeia * 11);
+				 System.out.println("O resultado financeiro da sessão das 16:00 é R$" + valorS2);			 
 				 break;
 			 case 3:
 				 
+				 valorS3 = (S3contNormal * 22) + (S3contMeia * 11);
+				 System.out.println("O resultado financeiro da sessão das 18:00 é R$" + valorS3);		 
 				 break;
 			 case 4:
 				 
-				 break;
-			 
+				 valorS4 = (S4contNormal * 22) + (S4contMeia * 11);
+				 System.out.println("O resultado financeiro da sessão das 20:00 é R$" + valorS4);			 
+				 break;			 
 			 }
 			 break;
-		 case 5: // resultados financeiros de todas as sessoes, é so somar tudo
+		 case 5: //resultado financeiro de todas as sessões
+			 valorTotal = valorS1 + valorS2 + valorS3 + valorS4;
+			 System.out.println("Oresultado financeiro total é R$" + valorTotal);
 			 break;
 		 default:
 				System.out.print("Número Inválido\n");

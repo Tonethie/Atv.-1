@@ -29,9 +29,9 @@ public class  Sessao {
 		 
 		 for (int j = 0; j < 20; j++) {
 			 if(dataLugar[i][j] == null){
-			 System.out.print("O  ");
+			 System.out.print("L  ");
 			 }else{
-				 System.out.print("L  ");
+				 System.out.print("O  ");
 			 }
 		}
 	}
@@ -48,10 +48,10 @@ public class  Sessao {
  public void checkAssento(int f1, int p1){ // chega se os assentos mostrando a matriz  
 	 mostraOcupado();
 	 if(dataLugar[f1][p1] != null){
-		 System.out.println("esse assento esta sendo ocupado por: " + dataLugar[f1][p1].getNome() + // informa o nome do clinte e tipo de pagante q ele é
+		 System.out.println("\nesse assento esta sendo ocupado por: " + dataLugar[f1][p1].getNome() + // informa o nome do clinte e tipo de pagante q ele é
 			            "\nque é pagante: " + dataLugar[f1][p1].getTipo());
 	 }else{
-		 System.out.println("esse lugar nao esta sendo ocupado por ninguem!! ");
+		 System.out.println("\nesse lugar nao esta sendo ocupado por ninguem!! ");
 	 }
  }
 
